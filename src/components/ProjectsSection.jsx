@@ -3,6 +3,8 @@ import FullScreenSection from "./FullScreenSection";
 import { Box, Heading } from "@chakra-ui/react";
 import Card from "./Card";
 
+import "../index.css";
+
 import reactSpaceImage from "../images/react-space.jpg";
 import reactInfiniteScrollImage from "../images/react-infinite-scroll.jpg";
 import photoGalleryImage from "../images/photo-gallery.jpg";
@@ -37,6 +39,30 @@ const projects = [
 
 const ProjectsSection = () => {
   return (
+    <FullScreenSection>
+      <div className="bg-gray-800 p-16 flex flex-col items-start space-y-8">
+        <h1 className="text-3xl font-bold text-white">Featured Projects</h1>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-4">
+          {projects.map((project) => (
+            <Card
+              key={project.title}
+              title={project.title}
+              description={project.description}
+              imageSrc={project.imageSrc}
+            />
+          ))}
+        </div>
+      </div>
+    </FullScreenSection>
+  );
+};
+
+export default ProjectsSection;
+
+
+/* 
+const ProjectsSection = () => {
+  return (
     <FullScreenSection
       backgroundColor="#512DA8"
       isDarkBackground
@@ -64,5 +90,4 @@ const ProjectsSection = () => {
     </FullScreenSection>
   );
 };
-
-export default ProjectsSection;
+ */
