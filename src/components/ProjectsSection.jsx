@@ -1,8 +1,6 @@
 import React from "react";
 import FullScreenSection from "./FullScreenSection";
-import { Box, Heading } from "@chakra-ui/react";
 import Card from "./Card";
-
 import reactSpaceImage from "../images/react-space.jpg";
 import reactInfiniteScrollImage from "../images/react-infinite-scroll.jpg";
 import photoGalleryImage from "../images/photo-gallery.jpg";
@@ -24,7 +22,7 @@ const projects = [
   {
     title: "Photo Gallery",
     description:
-      "A One-stop shop for photographers to share and monetize their photos, allowing them to have a second source of income.",
+      "A one-stop shop for photographers to share and monetize their photos, allowing them to have a second source of income.",
     imageSrc: photoGalleryImage,
   },
   {
@@ -37,30 +35,26 @@ const projects = [
 
 const ProjectsSection = () => {
   return (
-    <FullScreenSection
-      backgroundColor="#512DA8"
-      isDarkBackground
-      p={16}
-      alignItems="flex-start"
-      spacing={8}
-    >
-      <Heading as="h1" id="projects-section">
-        Featured Projects
-      </Heading>
-      <Box
-        display="grid"
-        gridTemplateColumns="repeat(2,minmax(0,1fr))"
-        gridGap={12}
+    <FullScreenSection isDarkBackground className="mt-16">
+      <div
+        id="projects-section"
+        className="bg-sky-900 w-screen p-16 flex flex-col items-center justify-center space-y-8"
       >
-        {projects.map((project) => (
-          <Card
-            key={project.title}
-            title={project.title}
-            description={project.description}
-            imageSrc={project.imageSrc}
-          />
-        ))}
-      </Box>
+        <h2 className="mt-8 mb-4 text-4xl lg:text-4xl font-bold text-white">
+          {" "}
+          Featured Projects
+        </h2>
+        <div className="max-w-[1000px] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-12">
+          {projects.map((project) => (
+            <Card
+              key={project.title}
+              title={project.title}
+              description={project.description}
+              imageSrc={project.imageSrc}
+            />
+          ))}
+        </div>
+      </div>
     </FullScreenSection>
   );
 };
