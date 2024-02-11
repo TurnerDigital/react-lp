@@ -1,17 +1,5 @@
 import React, { useEffect } from "react";
 import { useFormik } from "formik";
-import {
-  Box,
-  Button,
-  FormControl,
-  FormErrorMessage,
-  FormLabel,
-  Heading,
-  Input,
-  Select,
-  Textarea,
-  VStack,
-} from "@chakra-ui/react";
 import * as Yup from "yup";
 import FullScreenSection from "./FullScreenSection";
 import useSubmit from "../hooks/useSubmit";
@@ -59,71 +47,102 @@ const LandingSection = () => {
   });
 
   return (
-    <FullScreenSection isDarkBackground backgroundColor="#2A4365" spacing={8}>
-      <VStack w="1024px" p={32} alignItems="flex-start">
-        <Heading as="h1" id="contact-section">
-          Contact Me
-        </Heading>
-        <Box p={6} rounded="md" w="100%">
+    <FullScreenSection isDarkBackground className="mt-16">
+      <div id="contact-section" className="container p-16 flex flex-col w-full sm:w-3/4 md:w-2/3 xl:w-1/2 px-4 sm:px-6 md:px-8 lg:px-12">
+        <h2 className="mt-8 text-center text-4xl lg:text-4xl font-bold text-white">Contact Me</h2>
+        <div className="m-8">
           <form onSubmit={formik.handleSubmit}>
-            <VStack spacing={4}>
-              <FormControl
-                isInvalid={formik.touched.firstName && formik.errors.firstName}
-              >
-                <FormLabel htmlFor="firstName">Name</FormLabel>
-                <Input
+            <div className="space-y-5">
+              <div>
+                <label
+                  htmlFor="firstName"
+                  className="block mb-0.5 text-sm font-medium text-white"
+                >
+                  Name
+                </label>
+                <input
                   id="firstName"
                   name="firstName"
                   {...formik.getFieldProps("firstName")}
+                  className="block w-full rounded-md bg-gray-800 px-3 py-2 border border-gray-300 focus:ring-purple-500 focus:outline-purple-500 focus:outline-2"
                 />
-                <FormErrorMessage>{formik.errors.firstName}</FormErrorMessage>
-              </FormControl>
-              <FormControl
-                isInvalid={formik.touched.email && formik.errors.email}
-              >
-                <FormLabel htmlFor="email">Email Address</FormLabel>
-                <Input
+                {formik.touched.firstName && formik.errors.firstName && (
+                  <div className="text-red-500 text-sm mt-1">
+                    {formik.errors.firstName}
+                  </div>
+                )}
+              </div>
+              <div>
+                <label
+                  htmlFor="email"
+                  className="block mb-0.5 text-sm font-medium text-white"
+                >
+                  Email
+                </label>
+                <input
                   id="email"
                   name="email"
                   type="email"
                   {...formik.getFieldProps("email")}
+                  className="block w-full rounded-md bg-gray-800 px-3 py-2 border border-gray-300 focus:ring-purple-500 focus:outline-purple-500 focus:outline-2"
                 />
-                <FormErrorMessage>{formik.errors.email}</FormErrorMessage>
-              </FormControl>
-              <FormControl>
-                <FormLabel htmlFor="type">Type of enquiry</FormLabel>
-                <Select id="type" name="type" {...formik.getFieldProps("type")}>
+                {formik.touched.email && formik.errors.email && (
+                  <div className="text-red-500 text-sm mt-1">
+                    {formik.errors.email}
+                  </div>
+                )}
+              </div>
+              <div>
+                <label
+                  htmlFor="type"
+                  className="block mb-0.5 text-sm font-medium text-white"
+                >
+                  Type of enquiry
+                </label>
+                <select
+                  id="type"
+                  name="type"
+                  {...formik.getFieldProps("type")}
+                  className="block w-full rounded-md bg-gray-800 px-3 py-2 border border-gray-300 focus:ring-purple-500 focus:outline-purple-500 focus:outline-2"
+                >
                   <option value="hireMe">Freelance project proposal</option>
                   <option value="openSource">
                     Open source consultancy session
                   </option>
                   <option value="other">Other</option>
-                </Select>
-              </FormControl>
-              <FormControl
-                isInvalid={formik.touched.comment && formik.errors.comment}
-              >
-                <FormLabel htmlFor="comment">Your message</FormLabel>
-                <Textarea
+                </select>
+              </div>
+              <div>
+                <label
+                  htmlFor="comment"
+                  className="block mb-0.5 text-sm font-medium text-white"
+                >
+                  Your message
+                </label>
+                <textarea
                   id="comment"
                   name="comment"
-                  height={250}
                   {...formik.getFieldProps("comment")}
+                  className="block w-full rounded-md bg-gray-800 px-3 py-2 border border-gray-300 focus:ring-purple-500 focus:outline-purple-500 focus:outline-2 h-40"
                 />
-                <FormErrorMessage>{formik.errors.comment}</FormErrorMessage>
-              </FormControl>
-              <Button
+                {formik.touched.comment && formik.errors.comment && (
+                  <div className="text-red-500 text-sm mt-1">
+                    {formik.errors.comment}
+                  </div>
+                )}
+              </div>
+              <div className="flex justify-center">
+              <button
                 type="submit"
-                colorScheme="purple"
-                width="20%"
-                isLoading={isLoading}
+                className="inline-flex items-center px-12 py-2 rounded-md text-base font-medium text-white bg-purple-600 hover:bg-purple-700 focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-none"
               >
                 Submit
-              </Button>
-            </VStack>
+              </button>
+              </div>
+            </div>
           </form>
-        </Box>
-      </VStack>
+        </div>
+      </div>
     </FullScreenSection>
   );
 };
