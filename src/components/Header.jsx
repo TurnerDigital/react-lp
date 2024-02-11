@@ -1,11 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import {
-  faGithub,
-  faLinkedin,
-} from "@fortawesome/free-brands-svg-icons";
-import { Box, HStack } from "@chakra-ui/react";
+import {faGithub,faLinkedin} from "@fortawesome/free-brands-svg-icons";
 
 
 const socials = [
@@ -36,42 +32,33 @@ const Header = () => {
   };
 
   return (
-    <Box
-      position="fixed"
-      top={0}
-      left={0}
-      right={0}
-      translateY={0}
-      transitionProperty="transform"
-      transitionDuration=".3s"
-      transitionTimingFunction="ease-in-out"
-      backgroundColor="#18181b"
-    >
-      <Box color="white" maxWidth="1280px" margin="0 auto">
-        <HStack
-          px={16}
-          py={4}
-          justifyContent="space-between"
-          alignItems="center"
-        >
-          <nav>
-            <HStack spacing={8}>
-              {socials.map((social, index) => (
-                <a key={index} href={social.url} target="_blank" rel="noopener noreferrer">
-                  <FontAwesomeIcon icon={social.icon} size="2x" />
-                </a>
-              ))}
-            </HStack>
+    <div className="fixed top-0 left-0 right-0 z-1 transition-all duration-300 ease-in-out bg-[#18181b]">
+      <div className="container mx-auto max-w-7xl px-4 sm:px-8 lg:px-10 py-4">
+        <div className="flex items-center justify-between">
+          <nav className="space-x-6">
+            {socials.map((social, index) => (
+              <a
+                key={index}
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white hover:text-purple-500"
+              >
+                <FontAwesomeIcon icon={social.icon} size="2x" />
+              </a>
+            ))}
           </nav>
-          <nav>
-            <HStack spacing={8}>
-              <a href="/#projects" onClick={handleClick("projects")}>Projects</a>
-              <a href="/#contact" onClick={handleClick("contact")}>Contact Me</a>
-            </HStack>
+          <nav className="space-x-6">
+            <a href="#projects" onClick={handleClick("projects")} className="text-white hover:text-purple-500">
+              Projects
+            </a>
+            <a href="#contact" onClick={handleClick("contact")} className="text-white hover:text-purple-500">
+              Contact Me
+            </a>
           </nav>
-        </HStack>
-      </Box>
-    </Box>
+        </div>
+      </div>
+    </div>
   );
 };
 export default Header;
