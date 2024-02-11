@@ -49,7 +49,7 @@ const LandingSection = () => {
   return (
     <FullScreenSection isDarkBackground className="mt-16">
       <div id="contact-section" className="container p-16 flex flex-col w-full sm:w-3/4 md:w-2/3 xl:w-1/2 px-4 sm:px-6 md:px-8 lg:px-12">
-        <h2 className="mt-8 text-center text-4xl lg:text-4xl font-bold text-white">Contact Me</h2>
+        <h2 className="mt-8 text-center text-3xl md:text-4xl font-bold text-white">Contact Me</h2>
         <div className="m-8">
           <form onSubmit={formik.handleSubmit}>
             <div className="space-y-5">

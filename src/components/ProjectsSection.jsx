@@ -40,7 +40,7 @@ const ProjectsSection = () => {
         id="projects-section"
         className="bg-sky-900 w-screen p-16 flex flex-col items-center justify-center space-y-8"
       >
-        <h2 className="mt-8 mb-4 text-4xl lg:text-4xl font-bold text-white">
+        <h2 className="mt-8 mb-4 text-3xl md:text-4xl font-bold text-white">
           {" "}
           Featured Projects
         </h2>
